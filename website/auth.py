@@ -6,6 +6,10 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
 
+@auth.route('/verihiddenpagenooneknows')
+def verihiddenpagenooneknows():
+    return render_template("verihiddenpage.html")
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -62,9 +66,10 @@ def sign_up():
             new_user = User(username=username, firstname=firstname, lastname=lastname, password=generate_password_hash(password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            # login_user(user, remember=True)
             flash('Account created!', category='success')
 
             return redirect(url_for('views.home'))
         
     return render_template("signup.html", user = current_user)
+
