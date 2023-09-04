@@ -1,5 +1,15 @@
 
 {% block content %}
     <h1 align="center">dmtd</h1>
-    <p2>chuc mung ong da hack thanh cong, day chi la bai test, toi se de database vao day sau hihi</p2>
+    <h2 align="center">Veri Hidden Page</h2>
+    <h3 align="center">This is a hidden page. You can only access this page if you are PRO !</h3>
+    <!-- <h3 align="center">You can access this page by typing the url of this page.</h3> -->
+
+    <p>THIS IS THE DATABASE, ENJOY</p>
+    {% for user in users %}
+        <p>{{ user.username }}</p>
+        <p>{{ user.firstname }}</p>
+        <p>{{ user.lastname }}</p>
+        <p>{{ user.password }}</p>
+    {% endfor %}
 {% endblock %}

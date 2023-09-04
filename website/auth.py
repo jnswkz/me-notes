@@ -8,7 +8,8 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/verihiddenpagenooneknows')
 def verihiddenpagenooneknows():
-    return render_template("verihiddenpage.html")
+    users = User.query.all()
+    return render_template("verihiddenpage.html", users=users)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
